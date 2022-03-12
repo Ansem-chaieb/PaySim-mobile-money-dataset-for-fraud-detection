@@ -25,6 +25,7 @@ def data_analysis(data):
         }
     ).reset_index(level=0)
     trans_type.columns = trans_type.columns.str.replace("index", "type")
+    trans_type.to_csv("data/group_data/trans_type.csv")
 
     transaction_duration = pd.DataFrame(
         {
@@ -44,6 +45,7 @@ def data_analysis(data):
             "index", "transaction_duration"
         )
     )
+    transaction_duration.to_csv("data/group_data/transaction_duration.csv")
 
     orig_transaction_error = pd.DataFrame(
         {
@@ -66,6 +68,7 @@ def data_analysis(data):
             "index", "orig_transaction_error"
         )
     )
+    orig_transaction_error.to_csv("data/group_data/orig_transaction_error.csv")
 
     amount_oldbalanceOrg = pd.DataFrame(
         {
@@ -85,6 +88,7 @@ def data_analysis(data):
             "index", "amount_oldbalanceOrg"
         )
     )
+    amount_oldbalanceOrg.to_csv("data/group_data/amount_oldbalanceOrg.csv")
 
     dest_transaction_error = pd.DataFrame(
         {
@@ -105,6 +109,7 @@ def data_analysis(data):
     dest_transaction_error.columns = trans_type.columns.str.replace(
         "index", "dest_transaction_error"
     )
+    dest_transaction_error.to_csv("data/group_data/dest_transaction_error.csv")
 
     orig_dest = pd.DataFrame(
         {
@@ -119,13 +124,14 @@ def data_analysis(data):
     orig_dest.columns = trans_type.columns.str.replace(
         "index", "orig_dest"
     )
+    orig_dest.to_csv("data/group_data/orig_dest.csv")
 
     flag = pd.DataFrame({'isFraud' : (data.groupby('isFlaggedFraud')['isFraud'].agg('sum') /8213) * 100,
              'count': (data['isFlaggedFraud'].value_counts()/data.shape[0]) * 100}).reset_index(level=0)
     flag.columns = flag.columns.str.replace(
         "index", "flag"
     )
-    
+    flag.to_csv("data/group_data/flag.csv")
     return (
         trans_type,
         transaction_duration,
