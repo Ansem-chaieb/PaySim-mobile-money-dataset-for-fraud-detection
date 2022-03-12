@@ -1,1 +1,2 @@
-DATA_PATH: "data/Synthetic_Financial_Datasets.csvv"
+DATA_PATH: "data/Synthetic_Financial_Datasets.csv"
+PROCESSED_DATA_PATH: "data/processed_data.csv"

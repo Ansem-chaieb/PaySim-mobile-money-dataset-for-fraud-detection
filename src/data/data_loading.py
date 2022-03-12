@@ -43,5 +43,3 @@ def data_load(path):
     return data
 
 
-def data_analysis():
-    pass
