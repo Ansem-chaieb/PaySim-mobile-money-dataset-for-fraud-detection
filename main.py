@@ -6,9 +6,9 @@ import yaml
 import argparse
 from box import Box
 
-from src.data.data_loading import data_load, memory_manage
-from src.data.data_processing import feature_engineering
-from src.data.EDA import launch_streamlit
+from src.data_loading import data_load, memory_manage
+from src.data_processing import feature_engineering
+from src.streamlit_app import launch_streamlit
 
 with open("config.yaml", "r") as ymlfile:
     config = Box(yaml.safe_load(ymlfile))
