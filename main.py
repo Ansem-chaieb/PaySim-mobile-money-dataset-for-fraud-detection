@@ -69,7 +69,7 @@ if args.train:
         train, test, train_target, test_target
     )
     if config.XGB.TRAIN:
-        model, final_preds = run_model(config, X, Xtest, y, ytest, key="xgb")
+        model, final_preds = run_model(config, X, Xtest, y, key="xgb")
         print("Testing")
         preds = np.max(np.column_stack(final_preds), axis=1)
         conf_matrix = confusion_matrix(y_true=ytest, y_pred=preds)
@@ -79,7 +79,17 @@ if args.train:
         print("Average Precision score: {}".format(np.mean(precision)))
         print("Average Accuracy score: {}".format(np.mean(accuracy)))
     elif config.LGBM.TRAIN:
-        model, final_preds = run_model(config, X, Xtest, y, ytest, key="lgb")
+        model, final_preds = run_model(config, X, Xtest, y, key="lgb")
+        print("Testing")
+        preds = np.max(np.column_stack(final_preds), axis=1)
+        conf_matrix = confusion_matrix(y_true=ytest, y_pred=preds)
+        f1, recall, precision, accuracy = metrics(ytest, preds)
+        print("Average F1 score: {}".format(np.mean(f1)))
+        print("Average Recall score: {}".format(np.mean(recall)))
+        print("Average Precision score: {}".format(np.mean(precision)))
+        print("Average Accuracy score: {}".format(np.mean(accuracy)))
+    elif config.CAT.TRAIN:
+        model, final_preds = run_model(config, X, Xtest, y,  key="cat")
         print("Testing")
         preds = np.max(np.column_stack(final_preds), axis=1)
         conf_matrix = confusion_matrix(y_true=ytest, y_pred=preds)
@@ -89,12 +99,5 @@ if args.train:
         print("Average Precision score: {}".format(np.mean(precision)))
         print("Average Accuracy score: {}".format(np.mean(accuracy)))
     else:
-        model, final_preds = run_model(config, X, Xtest, y, ytest, key="cat")
-        print("Testing")
-        preds = np.max(np.column_stack(final_preds), axis=1)
-        conf_matrix = confusion_matrix(y_true=ytest, y_pred=preds)
-        f1, recall, precision, accuracy = metrics(ytest, preds)
-        print("Average F1 score: {}".format(np.mean(f1)))
-        print("Average Recall score: {}".format(np.mean(recall)))
-        print("Average Precision score: {}".format(np.mean(precision)))
-        print("Average Accuracy score: {}".format(np.mean(accuracy)))
+        assert "no model is set to true."
+

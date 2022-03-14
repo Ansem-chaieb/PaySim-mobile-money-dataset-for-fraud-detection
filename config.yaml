@@ -1,48 +1,48 @@
 DATA_PATH: "data/Synthetic_Financial_Datasets.csv"
 PROCESSED_DATA_PATH: "data/processed_data.csv"
 
-TEST_SIZE: 0.3
+TEST_SIZE: 0.1
 
 RKF: 
-  N_SPLITS: 2,
-  N_REPEATS: 2 ,
-  RANDOM_STATE: 42,
+  N_SPLITS: 2
+  N_REPEATS: 2 
+  RANDOM_STATE: 42
 
 
 XGB:
-  TRAIN: True,
-  OBJECTIVE: "binary:logistic",
-  EVAL_METRIC: "logloss",
-  LEARNING_RATE: 0.01,
-  MAX_DEPTH: 5,
-  MIN_CHILD_WEIGHT: 5, 
-  COLSAMPLE_BYTREE: 0.5, 
-  SUBSAMPLE: 0.5,
-  N_ESTIMATORS: 100,
-  PREDICTOR:  "gpu_predictor" , 
-  RANDOM_STATE: 42,
-  USE_LABEL_ENCODER: False, 
-  VERBOSITY: 0, 
+    TRAIN: True 
+    OBJECTIVE: "binary:logistic"
+    EVAL_METRIC: "logloss"
+    LEARNING_RATE: 0.01
+    MAX_DEPTH: 5
+    MIN_CHILD_WEIGHT: 5
+    COLSAMPLE_BYTREE: 0.5
+    SUBSAMPLE: 0.5
+    N_ESTIMATORS: 100
+#    PREDICTOR:  "gpu_predictor" 
+    RANDOM_STATE: 42
+    USE_LABEL_ENCODER: False
+    VERBOSITY: 0
 
 LGBM:
-  TRAIN: True,
-  NUM_LEAVES: 50, 
-  OBJECTIVE: 'binary',
-  IS_BALANCE: tRUE,
-  LEARNING_RATE: 0.01,
-  MAX_DEPTH: 5,
-  N_ESTIMATORS: 1000, 
-  BOOSTING_TYPE: 'gbdt',
-  VERBOSE: -1,
+    TRAIN: True 
+    NUM_LEAVES: 50 
+    OBJECTIVE: 'binary'
+    IS_BALANCE: True 
+    LEARNING_RATE: 0.01 
+    MAX_DEPTH: 5 
+    N_ESTIMATORS: 1000 
+    BOOSTING_TYPE: 'gbdt'
+    VERBOSE: -1 
 
 CAT:
-  TRAIN: True,
-  LOSS_FUNCTION: 'Logloss', 
-  EVAL_METRIC: "Recall",
-  LEARNING_RATE: 0.01,
-  DEPTH: 5, 
-  ITERATIONS: 1000, 
-  TASK_TYPE: "GPU",
-  SILENT: True, 
+    TRAIN: True
+    LOSS_FUNCTION: 'Logloss'
+    EVAL_METRIC: "Recall"
+    LEARNING_RATE: 0.01
+    DEPTH: 5  
+    ITERATIONS: 1000
+#    TASK_TYPE: "GPU"
+    SILENT: True
 
   

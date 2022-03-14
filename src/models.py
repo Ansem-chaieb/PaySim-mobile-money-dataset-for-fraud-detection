@@ -22,14 +22,14 @@ def create_test_data(data, test_size):
     return train, test, train_target, test_target
 
 
-def run_model(config, model, X, Xtest, y, ytest, key):
+def run_model(config, X, Xtest, y, key):
     final_preds, F1, Recall, Precision, Accuracy = [], [], [], [], []
     train_speed, test_speed = 0, 0
 
     rkf = RepeatedKFold(
-        n_splits=config.N_SPLITS,
-        n_repeats=config.N_REPEATS,
-        random_state=config.RANDOM_STATE,
+        n_splits=config.RKF.N_SPLITS,
+        n_repeats=config.RKF.N_REPEATS,
+        random_state=config.RKF.RANDOM_STATE,
     )
     params = get_model_params(key, config)
     model = define_model(key, params)
@@ -109,7 +109,7 @@ def get_model_params(key, config):
             "colsample_bytree": config.XGB.COLSAMPLE_BYTREE,
             "subsample": config.XGB.SUBSAMPLE,
             "n_estimators": config.XGB.N_ESTIMATORS,
-            "predictor": config.XGB.PREDICTOR,
+            #"predictor": config.XGB.PREDICTOR,
             "random_state": config.XGB.RANDOM_STATE,
             "use_label_encoder": config.XGB.USE_LABEL_ENCODER,
             "verbosity": config.XGB.VERBOSITY,
@@ -132,7 +132,7 @@ def get_model_params(key, config):
             "learning_rate": config.CAT.LEARNING_RATE,
             "depth": config.CAT.DEPTH,
             "iterations": config.CAT.ITERATIONS,
-            "task_type": config.CAT.TASK_TYPE,
+            #"task_type": config.CAT.TASK_TYPE,
             "silent": config.CAT.SILENT,
         }
     return params
