@@ -18,7 +18,7 @@ st.sidebar.title("Case study for transaction fraudulent:")
 st.sidebar.markdown("Navigation:")
 
 viz = st.sidebar.checkbox("Data exploration")
-res = st.sidebar.checkbox("Experiences benchmark")
+res = st.sidebar.checkbox("benchmarking")
 
 # =================================================================================== #
 #                                First  page                                          #
@@ -91,3 +91,64 @@ if viz:
     col2.markdown(
         "figure6: Feature corrolation"
         )
+# =================================================================================== #
+#                                Second  page                                         #
+# =================================================================================== #   
+st.title("Benchmark Experiences:")
+col1, col2, col3 = st.columns([0.2, 1, 0.2])  
+col2.dataframe({
+" ":["Hardware environment","Xgboost params", "lightgbm params", "catboost params"],
+"Description": ["Dual Nvidia TeslaP100(CUDA v= 11, GPU RAM(GB)= 17.1)",
+                "learning rate: 0.01, n_estimators: 1000, max_depth: 6, metric: log_loss ...", 
+                "learning rate: 0.01, n_estimators: 1000, max_depth: 6 ..." ,
+                "learning rate: 0.01, n_estimators: 1000, max_depth: 6, metric: recall ..." ]}) 
+
+st.header("Baselines:")
+col1, col2, col3 = st.columns([0.2, 2, 0.2]) 
+col2.dataframe({"Model": ["lgbm", "catboost", "xgboost"],
+                "Train speed (min) ":[9, 2.35, 61.8],
+                "Test speed (min)":[5.85, 0.14,0.03],
+                "F1":[0.232, 0.850, 0.843],
+                "Recall":[0.905, 0.749, 0.734],
+                "Precision":[0.131, 0.982, 0.989],
+                "Accuracy":[0.901, 0.956, 0.956],})
+col1, col2, col3 = st.columns(3) 
+col1.image("./results/baseline/lgbm3.png")   
+col1.markdown("figure 7: lgbm confusion matrix (baseline)") 
+col2.image("./results/baseline/cat3.png")   
+col2.markdown("figure 8: catboost confusion matrix (baseline)")  
+col3.image("./results/baseline/xgb3.png")   
+col3.markdown("figure 9: xgb confusion matrix (baseline)")    
+
+st.header("Experiement 1:")
+col1, col2, col3 = st.columns([0.2, 2, 0.2]) 
+col2.dataframe({"Model": ["lgbm", "catboost"],
+                "Train speed (min) ":[3.36, 1.28],
+                "Test speed (min)":[2.63, 0.05],
+                "F1":[0.257, 0.847],
+                "Recall":[0.965, 0.756],
+                "Precision":[0.147, 0.962],
+                "Accuracy":[0.981, 0.992],})
+col1, col2 = st.columns(2) 
+col1.image("./results/exp1/lgbm3.png")   
+col1.markdown("figure 10: lgbm confusion matrix (experiement 1)") 
+col2.image("./results/exp1/cat3.png")   
+col2.markdown("figure 11: catboost confusion matrix (experiement 1)")  
+
+st.header("Experiement 2:")
+col1, col2, col3 = st.columns([0.2, 2, 0.2]) 
+col2.dataframe({"Model": ["lgbm", "catboost"],
+                "Train speed (min) ":[1.28, 0.83],
+                "Test speed (min)":[0.98, 0.01],
+                "F1":[0.510, 0.882],
+                "Recall":[0.996, 0.804],
+                "Precision":[0.343, 0.975],
+                "Accuracy":[0.984, 0.998],})
+col1, col2 = st.columns(2) 
+col1.image("./results/exp2/lgbm3.png")   
+col1.markdown("figure 12: lgbm confusion matrix (experiement 2)") 
+col2.image("./results/exp2/cat3.png")   
+col2.markdown("figure 13: catboost confusion matrix (experiement 2)")  
+
+
+
