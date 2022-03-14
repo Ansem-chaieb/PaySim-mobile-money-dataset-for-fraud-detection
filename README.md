@@ -4,10 +4,10 @@
 
 PaySim simulates mobile money transactions based on a sample of real transactions extracted from one month of financial logs from a mobile money service implemented in an African country. 
 
-During this code, I worked on exploring the data and quickly building a predictive model based on some benchmark to different experiments to determine whether or not transactions are fraudulent.
+During this project, I worked on exploring the data and quickly building a predictive model based on some benchmark to different experiments to determine whether or not transactions are fraudulent.
 
 
-<p align="center"><img src ="https://github.com/Ansem-chaieb/Apollo-Agriculture-Case-Study/images/apollo.gif" alt = "Bassmalah" class="center"></p>
+<p align="center"><img src ="https://github.com/Ansem-chaieb/Apollo-Agriculture-Case-Study/blob/main/images/apollo.gif" alt = "Bassmalah" class="center"></p>
 
 
 ## Instructions
