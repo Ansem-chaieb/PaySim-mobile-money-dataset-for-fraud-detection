@@ -1,4 +1,32 @@
 import pandas as pd
+import numpy as np
+from sklearn.preprocessing import OrdinalEncoder
+
+
+def data_clean(data):
+    data = data[data['orig_dest'] == "C-C"]
+    data = data[(data['type'] == "CASH_OUT") | (data['type'] == "TRANSFER")]
+
+    return data
+
+def data_preprocess(train, test, train_target, test_target ):
+    train = train.drop([ 'amount_oldbalanceOrg', 'dest_transaction_error','orig_transaction_error', 'orig_dest'],1)
+    required_features = [col for col in train.columns if col not in ("Unnamed: 0", "nameOrig", "nameDest")]
+    cat_cols = [col for col in required_features if train[col].dtypes == np.object]
+    # enocde cat features
+    encoder = OrdinalEncoder()
+    train[cat_cols] = encoder.fit_transform(train[cat_cols])
+    test[cat_cols] = encoder.fit_transform(test[cat_cols])
+
+    X = train[required_features].values
+    Xtest = test[required_features].values
+    y = train_target.values 
+    ytest = test_target.values
+
+    return X, Xtest, y, ytest
+
+    
+
 
 def feature_engineering(data, save=False, path=None):
     assert (save == True) & (
