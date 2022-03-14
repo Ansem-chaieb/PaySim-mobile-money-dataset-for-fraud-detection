@@ -29,7 +29,7 @@ if viz:
         tp = Image.open('images/name.png')
         st.image(tp)
         st.markdown(
-        "figure1: Types of orginates-destination"
+        "figure 1: Types of orginates-destination"
         )
         st.dataframe(pd.DataFrame({"orig-dest": ["C-C", "C-M"],
         "isFraud": [100.0, 0.0], "count": [66.185392, 	33.814608]}))
@@ -38,7 +38,7 @@ if viz:
         tp = Image.open('images/type.png')
         st.image(tp)
         st.markdown(
-        "figure2: Counts of transaction type"
+        "figure 2: Counts of transaction type"
         )
         st.dataframe(pd.DataFrame({"type": 
         ['CASH_IN', 'CASH_OUT', 'DEBIT', 'PAYMENT', 'TRANSFER'],
@@ -49,7 +49,7 @@ if viz:
         tp_f = Image.open('images/type_fraud.png')
         st.image(tp_f)
         st.markdown(
-        "figure3: influece of transaction type on target"
+        "figure 3: influece of transaction type on target"
         ) 
         st.markdown("None of the transaction where its type is cash_in, debit or payment is fraud, despite they represent 56.45 %  of the data.")
     
@@ -58,7 +58,7 @@ if viz:
         tp = Image.open('images/orig_transaction_error.png')
         st.image(tp)
         st.markdown(
-        "figure4: Error in originates account"
+        "figure 4: Error in originates account"
         )
         st.dataframe(pd.DataFrame({"orig-tran-error": ['error', 'no error'],
         "isFraud": [0.8401314988432973, 99.1598685011567],
@@ -68,7 +68,7 @@ if viz:
         tp = Image.open('images/amount_oldbalanceorg.png')
         st.image(tp)
         st.markdown(
-        "figure5: Relation between old transaction orig , amount and target"
+        "figure 5: Relation between old transaction orig , amount and target"
         )
         st.dataframe(pd.DataFrame({"amount-oldtrans-orig": 
         ['equal', 'not equal'],
@@ -80,7 +80,7 @@ if viz:
         "isFraud":[0.12883090005287143, 100.0],
          "count": [99.99974853126542, 0.000251468734577894]}))
         st.markdown(
-        "table5: influece of transaction type on target"
+        "table 5: influece of transaction type on target"
         )    
         st.markdown("Only 0.0003 % of the transaction are more than 200.000 and all of the flagged transaction are truly fraud.") 
     tp = Image.open('images/corr.png')
@@ -88,7 +88,7 @@ if viz:
     col2.image(tp, use_column_width=True)
 
     col2.markdown(
-        "figure6: Feature corrolation"
+        "figure 6: Feature corrolation"
         )
 # =================================================================================== #
 #                                Second  page                                         #

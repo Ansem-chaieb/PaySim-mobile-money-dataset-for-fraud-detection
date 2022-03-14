@@ -24,19 +24,19 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--process",
-        help="Get informtions about your dataset.",
+        help="process data before eda.",
         action="store_true",
         default=False,
     )
     parser.add_argument(
         "--eda",
-        help="Get informtions about your dataset.",
+        help="Glaunch streamlit application.",
         action="store_true",
         default=False,
     )
     parser.add_argument(
         "--train",
-        help="Get informtions about your dataset.",
+        help="train and test different models.",
         action="store_true",
         default=False,
     )
