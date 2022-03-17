@@ -77,10 +77,10 @@ if viz:
         st.markdown("It's clear that if the transaction amount is equal to oldtransorig so 97.82 % it's fraud, as a result this feature is leakage.")
     with col3:
         st.dataframe(pd.DataFrame({"isFlaggedFraud": [0, 1],
-        "isFraud":[0.12883090005287143, 100.0],
-         "count": [99.99974853126542, 0.000251468734577894]}))
+        "isFraud":[99.805187,99.999749],
+         "count": [0.194813, 0.000251]}))
         st.markdown(
-        "table 5: influece of transaction type on target"
+        "table 5: influece of isFlaggedFraud on target"
         )    
         st.markdown("Only 0.0003 % of the transaction are more than 200.000 and all of the flagged transaction are truly fraud.") 
     tp = Image.open('images/corr.png')
