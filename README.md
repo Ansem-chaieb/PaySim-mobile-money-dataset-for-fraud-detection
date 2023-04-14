@@ -1,4 +1,4 @@
-<h1 align="center">Apollo-Agriculture-Case-Study</h1>
+<h1 align="center">PaySim mobile money dataset for fraud detection</h1>
 
 [![Streamlit_App]][streamlit_App_url]
 
